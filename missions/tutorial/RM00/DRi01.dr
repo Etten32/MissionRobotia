@@ -1,0 +1,7 @@
+J+M+J
+01
+1NRMD -|- north facing door
+NULL -|- destination room (example: RM01)
+NULL -|- destination door in room (example: DR00)
+2 -|- 0=START 1=MID 2=END
+VCR
