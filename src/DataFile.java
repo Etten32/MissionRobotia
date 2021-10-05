@@ -14,7 +14,7 @@ public class DataFile {
         this.fileName = fileName;
     }
 
-    //// VERSIONING
+    //// FILE PROCESSING
     // check file -R- check if file exists
     public boolean checkForFile(){
         return false;
@@ -43,7 +43,7 @@ public class DataFile {
 
     }
 
-    // decrypt data - checks for encryption, and decrypts data in dataLines[] if encrypted INCOMPLETE
+    // decrypt data - checks for encryption, and decrypts data in dataLines[] if encrypted INCOMPLETE - IL
     public void decryptData(){
 
     }
@@ -58,6 +58,11 @@ public class DataFile {
         loadData();
         decryptData();
         filterData();
+    }
+
+    // exportData - writes all data in dataLines[] to file
+    public void exportData(){
+
     }
 
     // reset data - resets dataLines to empty array and resets pointer // CHOP-BLOCK
