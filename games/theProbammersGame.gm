@@ -1,0 +1,9 @@
+J+M+J
+the Probammers Game -|- game title
+true 00 -|- tutorial
+false 00 -|- mission1
+false 00 -|- mission2
+VCR
+false/true says if unlocked or not
+id says what room they were last in (and spawn in on a load, unless they choose to reset mission)
+!!!THIS DOES NOT ACCOUNT FOR IF A PLAYER GOES BACK TO A ROOM, WILL HAVE TO ACCOUNT FOR ROOMS BEING RESET ON LOAD!!!
