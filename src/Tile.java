@@ -1,6 +1,9 @@
+import javax.swing.*;
+
 //J+M+J
 public class Tile {
     //picture
+    private ImageIcon tilePic;
     //if user can go on it
     private boolean passible; // true/false for doors if it unlocked or not
     private String label;
@@ -18,5 +21,12 @@ public class Tile {
     }
     public void setPassible(boolean passible){
         this.passible = passible;
+    }
+    // calculates the name of picture
+    public void calcPic(){
+        // if it is simple block
+        if(Character.isDigit(label.charAt(0))) tilePic = new ImageIcon("../tileImages/" + label + ".png");
+        // if it is complex block
+        else { tilePic = new ImageIcon("../tileImages/UNKNOWN.png"); }
     }
 }
