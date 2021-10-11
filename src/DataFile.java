@@ -1,3 +1,5 @@
+import java.util.jar.JarEntry;
+
 // J+M+J
 // To manage data file inputs
 public class DataFile {
@@ -9,8 +11,12 @@ public class DataFile {
     // pointer to current line
     private int linePointer = 0;
 
+    public static void main(String[] args){
+
+    }
+
     // Constructor - takes fileName
-    public void DataFile(String fileName){
+    public DataFile(String fileName){
         this.fileName = fileName;
     }
 

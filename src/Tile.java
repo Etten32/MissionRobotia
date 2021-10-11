@@ -29,4 +29,6 @@ public class Tile {
         // if it is complex block
         else { tilePic = new ImageIcon("../tileImages/UNKNOWN.png"); }
     }
+    // getPic
+    public ImageIcon getTilePic(){ return tilePic;}
 }
