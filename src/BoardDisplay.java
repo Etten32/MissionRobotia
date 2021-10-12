@@ -17,6 +17,13 @@ public class BoardDisplay extends JPanel {
         currentDisplay = toSet;
     }
 
+    // refresh board - paints/repaints this. panel with the current contents of currentDisplay[][]
+    // use Settings.getTileSize to get size of each tile
+    // (work with getting it working with pixel size 10 and then try getting alternate sizes working)
+    public void refreshBoard(){
+
+    }
+
     // testing main
     public static void main(String[] args){
         // BASIC TEST ROOM
