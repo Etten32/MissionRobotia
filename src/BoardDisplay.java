@@ -1,8 +1,11 @@
 // J+M+J
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 // panel in which the board is stored and displayed
 public class BoardDisplay extends JPanel {
@@ -51,14 +54,15 @@ public class BoardDisplay extends JPanel {
         for(int y=0; y<currentDisplay.length; y++){// iterate over the y dirrection of the tile array
             for(int x=0; x<currentDisplay[y].length; x++){// iterate over the x dirrection of the tile array
                 Tile currentTile = currentDisplay[y][x]; // load current tile from array
-                ImageIcon image = loadimage(currentTile);//get image
+                BufferedImage image = loadimage(currentTile);//get image
 
                 // determine the resolution
-                xres = image.getIconWidth();
-                yres = image.getIconHeight();
+                xres = image.getWidth();
+                yres = image.getHeight();
                 //
 
-                //g.drawImage(image,xres,yres); // currently does not like this. I believe it is because it is an image icon instead of a buffered image.
+
+                g.drawImage(image,xres*x,yres*y,null); // currently does not like this. I believe it is because it is an image icon instead of a buffered image.
 
 
             }
@@ -69,9 +73,9 @@ public class BoardDisplay extends JPanel {
         //g.drawImage();// image xposition, yposition
     }
 
-    public ImageIcon loadimage(Tile tile){
+    public BufferedImage loadimage(Tile tile){
         tile.calcPic();
-        ImageIcon pic = tile.getTilePic();
+        BufferedImage pic = tile.getTilePic();
         return pic;
     }
 
@@ -83,7 +87,7 @@ public class BoardDisplay extends JPanel {
     }
 
     // testing main
-    public static void main(String[] args){
+    public void main(String[] args){
         // BASIC TEST ROOM
         Tile[][] currentDisplay = {
                 {new Tile("3CNWL", false), new Tile("1WALL", false), new Tile("1WALL", false), new Tile("4CNWL", false), new Tile("0WALL", false), },
@@ -91,6 +95,7 @@ public class BoardDisplay extends JPanel {
                 {new Tile("DRi00", false), new Tile("OUT00", true), new Tile("OUT01", true), new Tile("0FLOR", true), new Tile("2WALL", false), },
                 {new Tile("2CNWL", false), new Tile("3WALL", false), new Tile("DRi01", false), new Tile("3WALL", false), new Tile("1CNWL", false), }
         };
+        this.currentDisplay = currentDisplay;
 
 
     }
