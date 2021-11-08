@@ -1,8 +1,10 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
 
 //J+M+J
 public class Tile {
@@ -30,6 +32,7 @@ public class Tile {
     public void calcPic(){
         try {
             // if it is simple block
+            //System.out.println("../tileImages/essential/" + label + ".png"); // debugging
             if (Character.isDigit(label.charAt(0))) tilePic = ImageIO.read(new File("../tileImages/essential/" + label + ".png"));
                 // if it is complex block
             else {

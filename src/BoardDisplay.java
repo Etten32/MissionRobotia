@@ -23,6 +23,7 @@ public class BoardDisplay extends JPanel {
         scrollableBoard.add(imageBoard);
 
         JScrollPane scrollFrame = new JScrollPane(scrollableBoard);// make a scrolable pannel and add the scollableboard to it
+
         this.add(scrollFrame, BorderLayout.CENTER);// add the scrollframe to the BoardDisplay
 
         // add scrolbars to the current Jpanel
@@ -57,12 +58,13 @@ public class BoardDisplay extends JPanel {
                 BufferedImage image = loadimage(currentTile);//get image
 
                 // determine the resolution
-                xres = image.getWidth();
-                yres = image.getHeight();
+                xres = Settings.getTileSize()*image.getWidth()/50; // sets the scaling of the board size
+                yres = Settings.getTileSize()*image.getHeight()/50; // divides by the original size of the images 50*50
                 //
 
+                Image draw = image.getScaledInstance(xres,yres, Image.SCALE_SMOOTH); // scale the tile size by Settings paramater
 
-                g.drawImage(image,xres*x,yres*y,null); // currently does not like this. I believe it is because it is an image icon instead of a buffered image.
+                g.drawImage(draw,xres*x,yres*y,null); // currently does not like this. I believe it is because it is an image icon instead of a buffered image.
 
 
             }
