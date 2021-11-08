@@ -55,7 +55,7 @@ public class DataFile {
 
     }
 
-    // filter data - removes all non-data text from dataLines[] and consolidates data into smaller array INCOMPLETE
+    // filter data - removes all non-data text from dataLines[] and consolidates data into smaller array INCOMPLETE(finetune so it doesn't filter out "--")
     public void filterData(){
 
     }
