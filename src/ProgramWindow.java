@@ -27,16 +27,35 @@ public class ProgramWindow extends JFrame{
             @Override
             public void run() {
 
-                ProgramWindow mainWindow = new ProgramWindow(); // Make window to host the game in
+                ProgramWindow mainWindow = new ProgramWindow(); // Make window to host the game/GUI in
                 mainWindow.setSize(xResolution, yResolution );
-                mainWindow.setVisible(true); // set to visible
+
 
 
                 // make menu /gui stuffs
 
 
+                BoardDisplay gameboard = new BoardDisplay(); // make a gameboard
+                JScrollPane scrollframe = new JScrollPane(); // make a scrollPane to house the gameboard
+                scrollframe.setViewportView(gameboard); // set the scrollframe to display the gameboard
+                scrollframe.setWheelScrollingEnabled(true); // allow mouse wheel to scroll
+                // make scrollbars
+                JScrollBar updownslider = scrollframe.getVerticalScrollBar();
+                JScrollBar rightleftslider = scrollframe.getHorizontalScrollBar();
+                //
+                JPanel boardhousing = new JPanel();// make jpanel to house scrolling board
+                boardhousing.setLayout(new BorderLayout());
+                // add scrolling board and scrollbars to the jpanel
+                boardhousing.add(scrollframe,BorderLayout.CENTER);
+                boardhousing.add(rightleftslider,BorderLayout.SOUTH);
+                boardhousing.add(updownslider,BorderLayout.EAST);
+                //
 
-                mainWindow.add(new BoardDisplay()); // board game pannel to add to window to display the board
+
+
+
+                mainWindow.add(boardhousing);
+                mainWindow.setVisible(true); // set to visible
             }
         });
     }

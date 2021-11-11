@@ -31,7 +31,6 @@ public class Tile {
     // calculates the name of picture
     public void calcPic(){
         try {
-            System.out.println("../tileImages/essential/" + label + ".png");
             // if it is simple block
             //System.out.println("../tileImages/essential/" + label + ".png"); // debugging
             if (Character.isDigit(label.charAt(0))) tilePic = ImageIO.read(new File("../tileImages/essential/" + label + ".png"));

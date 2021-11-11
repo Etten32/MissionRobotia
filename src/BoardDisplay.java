@@ -11,6 +11,7 @@ import java.io.IOException;
 public class BoardDisplay extends JPanel {
     // holds current display
     Tile[][] currentDisplay;
+    int imagesize = 50; // all images should follow this size
 
 
     // constructor
@@ -18,26 +19,8 @@ public class BoardDisplay extends JPanel {
 
         this.setLayout(new BorderLayout());
         main(null); // initialize the tile array
-        Canvas imageBoard = new Canvas();// make a canvas to draw board images on
-        JPanel scrollableBoard = new JPanel(); // make a jpannel to be scrollable and contain the board
-        scrollableBoard.add(imageBoard);
-
-        JScrollPane scrollFrame = new JScrollPane(scrollableBoard);// make a scrolable pannel and add the scollableboard to it
-
-        this.add(scrollFrame, BorderLayout.CENTER);// add the scrollframe to the BoardDisplay
-
-        // add scrolbars to the current Jpanel
-        this.add(scrollFrame.getHorizontalScrollBar(), BorderLayout.SOUTH);
-        this.add(scrollFrame.getVerticalScrollBar(), BorderLayout.EAST);
-        //
-
-
-
-
-
-
-
-
+        this.setSize(new Dimension(currentDisplay[0].length*Settings.getTileSize()*imagesize/50,currentDisplay.length*Settings.getTileSize()*imagesize/50)); // set imageboard size to the size of the map
+        this.setVisible(true);
     }
 
     // sendTiles - sends array to set in currentDisplay[][]
@@ -48,8 +31,8 @@ public class BoardDisplay extends JPanel {
 
 
     // refresh board - paints/repaints this. panel with the current contents of currentDisplay[][]
-    public void paint(Graphics g){
-        super.paint(g);
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
         int xres=0, yres=0; // resolution of the images
 
         for(int y=0; y<currentDisplay.length; y++){// iterate over the y dirrection of the tile array
@@ -57,14 +40,23 @@ public class BoardDisplay extends JPanel {
                 Tile currentTile = currentDisplay[y][x]; // load current tile from array
                 BufferedImage image = loadimage(currentTile);//get image
 
+                if(image.getHeight()!=imagesize || image.getWidth()!=imagesize){
+                    try {
+                        throw new TilesizeMisMatchException("Assumed tilesize while creating the board is different than tilesize of loaded tile");
+                    } catch (TilesizeMisMatchException e) {
+                        e.printStackTrace();
+                    }
+                }
+
                 // determine the resolution
                 xres = Settings.getTileSize()*image.getWidth()/50; // sets the scaling of the board size
                 yres = Settings.getTileSize()*image.getHeight()/50; // divides by the original size of the images 50*50
                 //
 
                 Image draw = image.getScaledInstance(xres,yres, Image.SCALE_SMOOTH); // scale the tile size by Settings paramater
+                Graphics2D g2d = (Graphics2D) g;
 
-                g.drawImage(draw,xres*x,yres*y,null); // currently does not like this. I believe it is because it is an image icon instead of a buffered image.
+                g2d.drawImage(draw,xres*x,yres*y,null); // currently does not like this. I believe it is because it is an image icon instead of a buffered image.
 
 
             }
