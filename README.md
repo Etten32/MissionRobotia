@@ -12,3 +12,5 @@ Therefore, it is your duty to command this robot through its mission to find and
 Intelligence managed to mark down where Rob Robins secret hideout is, but they could do no more.
 
 The rest is up to you: Initiating Mission Robotochia....
+
+(Please note that this project, which was mostly in planning and diagrams, is now officially discontinued)
