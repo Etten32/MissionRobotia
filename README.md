@@ -13,4 +13,9 @@ Intelligence managed to mark down where Rob Robins secret hideout is, but they c
 
 The rest is up to you: Initiating Mission Robotochia....
 
-(Please note that this project, which was mostly in planning and diagrams, is now officially discontinued)
+
+(This project was an original game idea to practice coding with my students whom I taught Java over Summer.
+
+Please note that the project, which was mostly in planning and diagrams, is now officially discontinued.
+
+Rough system structure plans and diagrams can be found in the "notes" folder, various game information files can be found in the "games" and "missions folders, testing images in the "tileImages" and "unitImages" folders, and what unfinished code was generated is in the "src" folder.)
